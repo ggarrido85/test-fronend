@@ -47,7 +47,7 @@ export function Filters({ config }) {
           <option value='all'>Todas</option>
           {valuesCategories != null &&
             valuesCategories.map((item) => (
-              <option value={item.id}>{item.value}</option>
+              <option key={item.id} value={item.id}>{item.value}</option>
             ))}
         </select>
       </div>

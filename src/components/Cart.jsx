@@ -1,15 +1,13 @@
 import './Cart.css'
 
-import { useId } from 'react'
+import { useId, useState } from 'react'
 import { CartIcon, ClearCartIcon } from './Icons.jsx'
 import { useCart } from '../hooks/useCart.js'
 
 function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
   return (
     <li className='text-white'>
-      <img
-        src={image}
-        alt={title}
+      <img src={image} alt={title}
       />
       <div>
         <strong>{title}</strong> - ${price}
@@ -28,16 +26,25 @@ function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart, restToCart} = useCart()
+  const { addToCart, clearCart, cart, restToCart} = useCart()
+ 
+  let totalValue = 0;
+  cart.map(product => (
+            totalValue +=product.price * product.quantity 
+          )) 
 
   return (
     <>
       <label className='cart-button' htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
+     
       <input id={cartCheckboxId} type='checkbox' hidden />
 
       <aside className='cart'>
+         <label className='text-white ' >
+        Importe: ${totalValue} 
+      </label>
         <ul>
           {cart.map(product => (
             <CartItem

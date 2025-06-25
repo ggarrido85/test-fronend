@@ -1,4 +1,4 @@
-import { IS_DEVELOPMENT } from "../config.js";
+import { IS_DEVELOPMENT } from "../config/config.js";
 
 
 const prod = {
