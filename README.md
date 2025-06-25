@@ -20,3 +20,12 @@ al carrito".
 ##### Requisitos:
 - [] Mostrar un resumen del carrito con los datos de la compra.
 - [] Permitir simular la "finalización de compra".
+
+
+
+
+
+TODO: 
+[] Adicionar tailwincss
+[] Reescribir la entrada inicial del componente (no me gusta como carga el listado de elementos)
+[]

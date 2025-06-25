@@ -1,10 +1,10 @@
 import { Filters } from './Filters.jsx'
 
-export function Header () {
+export function Header ({config}) {
   return (
-    <header>
-      <h1>Tienda 🛒</h1>
-      <Filters />
+    <header className="flex justify-center items-center text-3xl  bg-blend-color ">
+      <h1 className="">Tienda 🛒</h1>
+      <Filters config={config} />
     </header>
   )
 }

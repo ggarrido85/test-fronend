@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { FiltersContext } from '../context/filters.jsx'
 
+
+// Esto se hace de forma local se pudiera consulir algun api
 export function useFilters () {
   const { filters, setFilters } = useContext(FiltersContext)
 
