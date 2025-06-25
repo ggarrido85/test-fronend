@@ -26,10 +26,10 @@ console.log(config)
   const minMaxPrice = config.minMax;// {min:10,max:10000};
   
   return (
-    <section className='filters'>
+    <section className='flex justify-center items-center gap-4 '>
 
-      <div>
-        <label htmlFor={minPriceFilterId}>Precio a partir de:</label>
+      <div className="gap-8">
+        <label className='' htmlFor={minPriceFilterId}>Precio a partir de:</label>
         <input
           type='range'
           id={minPriceFilterId}

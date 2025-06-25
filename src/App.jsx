@@ -45,7 +45,7 @@ function App() {
 
           var categ = []
           for(let i in vlistCategories)
-            if(vlistCategories.hasOwnProperty(i)) 
+            if(vlistCategories.hasOwnProperty(i))
             categ.push({ id: i, value: i })
  
           setloadedProducts(listProducst)
