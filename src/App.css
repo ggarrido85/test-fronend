@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply bg-black  /* bg-black bg-gradient-to-b from-black via-sky-100 to-gray-100 w-100*/
+    @apply      bg-black bg-gradient-to-b from-black via-sky-100 to-gray-100  bg-no-repeat
   }
   root {
     @apply font-normal line-clamp-1 text-white

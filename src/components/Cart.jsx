@@ -1,16 +1,16 @@
 import './Cart.css'
 
 import { useId, useState } from 'react'
-import { CartIcon, ClearCartIcon } from './Icons.jsx'
+import { CartIcon, ClearCartIcon,PayIcon } from './Icons.jsx'
 import { useCart } from '../hooks/useCart.js'
 
 function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
   return (
-    <li className='text-white'>
-      <img src={image} alt={title}
+    <li className='text-white   max-h-max'>
+      <img className='flex justify-center items-center' src={image} alt={title}
       />
-      <div>
-        <strong>{title}</strong> - ${price}
+      <div >
+        <strong>{title.slice(0, 30)}</strong> - ${price}
       </div>
 
       <footer>
@@ -28,6 +28,11 @@ export function Cart () {
   const cartCheckboxId = useId()
   const { addToCart, clearCart, cart, restToCart} = useCart()
  
+  // Diplay list an descriptions
+  const makePay = ()=>{
+
+  }
+
   let totalValue = 0;
   cart.map(product => (
             totalValue +=product.price * product.quantity 
@@ -41,7 +46,7 @@ export function Cart () {
      
       <input id={cartCheckboxId} type='checkbox' hidden />
 
-      <aside className='cart'>
+      <aside className='cart bg-blue-950'>
          <label className='text-white ' >
         Importe: ${  totalValue.toFixed(2)} 
       </label>
@@ -56,8 +61,11 @@ export function Cart () {
           ))}
         </ul>
 
-        <button onClick={clearCart}>
+        <button className='bg-red-400' onClick={clearCart}>
           <ClearCartIcon />
+        </button>
+        <button onClick={makePay}>
+          <PayIcon />
         </button>
       </aside>
     </>

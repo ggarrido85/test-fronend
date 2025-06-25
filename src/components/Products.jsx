@@ -22,7 +22,7 @@ export function Products ({ products }) {
                 src={product.image}
                 alt={product.title}
               />
-              <div>
+              <div className='h-20'>
                 <strong>{product.title}</strong> - ${product.price}
               </div>
               <div >

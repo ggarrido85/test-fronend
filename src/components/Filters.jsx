@@ -8,6 +8,15 @@ export function Filters({ config }) {
   const minPriceFilterId = useId()
   const categoryFilterId = useId()
 
+  // Por descripcion
+  const handleChangeDescription = (event) => {
+    setFilters(prevState => ({
+      ...prevState,
+      description: event.target.value
+    }))
+  }
+
+  // Segun el precio
   const handleChangeMinPrice = (event) => {
     setFilters(prevState => ({
       ...prevState,
@@ -15,6 +24,7 @@ export function Filters({ config }) {
     }))
   }
 
+  // Segun la categoria
   const handleChangeCategory = (event) => {
     setFilters(prevState => ({
       ...prevState,
@@ -22,12 +32,14 @@ export function Filters({ config }) {
     }))
   }
 
-  const valuesCategories = config.categories;
+  
+
+
+  const valuesCategories = config.categories;//['','']
   const minMaxPrice = config.minMax;// {min:10,max:10000};
 
   return (
     <section className='flex justify-center items-center gap-4 '>
-
       <div className="gap-8">
         <label className='' htmlFor={minPriceFilterId}>Precio a partir de:</label>
         <input
@@ -43,7 +55,7 @@ export function Filters({ config }) {
 
       <div>
         <label htmlFor={categoryFilterId}>Categoría(s)</label>
-        <select className='text-black border-amber-50' id={categoryFilterId} onChange={handleChangeCategory}>
+        <select className='text-black border-0 bg-blue-50' id={categoryFilterId} onChange={handleChangeCategory}>
           <option value='all'>Todas</option>
           {valuesCategories != null &&
             valuesCategories.map((item) => (
