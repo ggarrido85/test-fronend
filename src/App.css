@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-black bg-gradient-to-b from-black via-sky-100 to-gray-100 
+  }
+  root {
+    @apply font-normal line-clamp-1 text-white
+   /* @apply line-height: 1.5;
+    @apply font-weight: 400;
+
+    @apply  color-scheme: light dark;
+    @apply color: rgba(255, 255, 255, 0.87); 
+
+    @apply font-synthesis: none;
+    @apply text-rendering: optimizeLegibility;
+    @apply -webkit-font-smoothing: antialiased;
+    @apply -moz-osx-font-smoothing: grayscale;
+    @apply -webkit-text-size-adjust: 100%;*/
+  }
+}
+
+ 
+/*
+#root {
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}*/
