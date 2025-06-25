@@ -2,6 +2,7 @@ export const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) 
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
+  REST_TO_CART: 'REST_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
   CLEAR_CART: 'CLEAR_CART'
 }
@@ -16,24 +17,7 @@ const UPDATE_STATE_BY_ACTION = {
     const { id } = action.payload
     const productInCartIndex = state.findIndex(item => item.id === id)
 
-    if (productInCartIndex >= 0) {
-      // 👀 una forma sería usando structuredClone
-      // const newState = structuredClone(state)
-      // newState[productInCartIndex].quantity += 1
-
-      // 👶 usando el map
-      // const newState = state.map(item => {
-      //   if (item.id === id) {
-      //     return {
-      //       ...item,
-      //       quantity: item.quantity + 1
-      //     }
-      //   }
-
-      //   return item
-      // })
-
-      // ⚡ usando el spread operator y slice
+    if (productInCartIndex >= 0) { 
       const newState = [
         ...state.slice(0, productInCartIndex),
         { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
@@ -54,11 +38,18 @@ const UPDATE_STATE_BY_ACTION = {
 
     updateLocalStorage(newState)
     return newState
-  },
+  }, 
   [CART_ACTION_TYPES.REMOVE_FROM_CART]: (state, action) => {
     const { id } = action.payload
     const newState = state.filter(item => item.id !== id)
-    updateLocalStorage(newState)
+    updateLocalStorage(newState) 
+    return newState
+  },
+  [CART_ACTION_TYPES.REST_TO_CART]: (state, action) => {
+    const { id } = action.payload
+    console.log("restado")
+    const newState = state.filter(item => item.id !== id)
+    updateLocalStorage(newState) 
     return newState
   },
   [CART_ACTION_TYPES.CLEAR_CART]: () => {

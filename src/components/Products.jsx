@@ -16,7 +16,7 @@ export function Products ({ products }) {
           const isProductInCart = checkProductInCart(product)
 
           return (
-            <li key={product.id}>
+            <li className="flex items-center space-x-2 px-4 py-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 border-l-4 border-white" key={product.id}>
               <img
                 src={product.image}
                 alt={product.title}
@@ -24,7 +24,7 @@ export function Products ({ products }) {
               <div>
                 <strong>{product.title}</strong> - ${product.price}
               </div>
-              <div>
+              <div className='flex align-bottom'>
                 <button
                   style={{ backgroundColor: isProductInCart ? 'red' : '#09f' }} onClick={() => {
                     isProductInCart

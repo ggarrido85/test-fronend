@@ -4,9 +4,9 @@ import { useId } from 'react'
 import { CartIcon, ClearCartIcon } from './Icons.jsx'
 import { useCart } from '../hooks/useCart.js'
 
-function CartItem ({ image, price, title, quantity, addToCart }) {
+function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
   return (
-    <li>
+    <li className='text-white'>
       <img
         src={image}
         alt={title}
@@ -19,7 +19,8 @@ function CartItem ({ image, price, title, quantity, addToCart }) {
         <small>
           Unidades: {quantity}
         </small>
-        <button onClick={addToCart}>+</button>
+        <button className="p12 size-10 flex bg-blue-500" onClick={addToCart}>+</button>
+        <button className="p12 size-10 flex bg-red-500" onClick={restToCart}>-</button>
       </footer>
     </li>
   )
@@ -27,7 +28,7 @@ function CartItem ({ image, price, title, quantity, addToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart } = useCart()
+  const { cart, clearCart, addToCart, restToCart} = useCart()
 
   return (
     <>
@@ -42,6 +43,7 @@ export function Cart () {
             <CartItem
               key={product.id}
               addToCart={() => addToCart(product)}
+              restToCart={() => restToCart(product)}
               {...product}
             />
           ))}
