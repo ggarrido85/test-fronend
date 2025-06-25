@@ -6,21 +6,17 @@
   }
   root {
     @apply font-normal line-clamp-1 text-white
-   /* @apply line-height: 1.5;
-    @apply font-weight: 400;
 
-    @apply  color-scheme: light dark;
-    @apply color: rgba(255, 255, 255, 0.87); 
-
-    @apply font-synthesis: none;
-    @apply text-rendering: optimizeLegibility;
-    @apply -webkit-font-smoothing: antialiased;
-    @apply -moz-osx-font-smoothing: grayscale;
-    @apply -webkit-text-size-adjust: 100%;*/
   }
 }
 
- 
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
 
 #root {
   max-width: 85%;
@@ -28,14 +24,38 @@
   padding: 2rem;
   text-align: center;
   width: 100%;
+  max-width: 1280px;
+  /*margin: 0 auto;*/
+  padding: 2rem;
+  font-weight: normal;
 }
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; 
+   transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
@@ -61,3 +81,4 @@ ul {
   list-style: none;
   padding: 0;
 }
+

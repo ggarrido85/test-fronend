@@ -43,7 +43,7 @@ export function Filters({ config }) {
 
       <div>
         <label htmlFor={categoryFilterId}>Categoría(s)</label>
-        <select id={categoryFilterId} onChange={handleChangeCategory}>
+        <select className='text-black border-amber-50' id={categoryFilterId} onChange={handleChangeCategory}>
           <option value='all'>Todas</option>
           {valuesCategories != null &&
             valuesCategories.map((item) => (

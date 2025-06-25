@@ -43,7 +43,7 @@ export function Cart () {
 
       <aside className='cart'>
          <label className='text-white ' >
-        Importe: ${totalValue} 
+        Importe: ${  totalValue.toFixed(2)} 
       </label>
         <ul>
           {cart.map(product => (
