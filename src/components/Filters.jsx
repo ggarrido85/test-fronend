@@ -2,7 +2,7 @@ import { useId } from 'react'
 import { useFilters } from '../hooks/useFilters.js'
 import './Filters.css'
 
-export function Filters ({config}) {
+export function Filters({ config }) {
   const { filters, setFilters } = useFilters()
 
   const minPriceFilterId = useId()
@@ -21,10 +21,10 @@ export function Filters ({config}) {
       category: event.target.value
     }))
   }
-console.log(config)
+
   const valuesCategories = config.categories;
   const minMaxPrice = config.minMax;// {min:10,max:10000};
-  
+
   return (
     <section className='flex justify-center items-center gap-4 '>
 
@@ -48,7 +48,7 @@ console.log(config)
           {valuesCategories != null &&
             valuesCategories.map((item) => (
               <option value={item.id}>{item.value}</option>
-          ))}
+            ))}
         </select>
       </div>
 
