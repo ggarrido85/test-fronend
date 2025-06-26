@@ -67,6 +67,8 @@ al carrito".
 
 #### TODO: 
 [X] Adicionar (ir arriba)
+[X] Inluir Cargando en la interfaz principal
 [X] Adicionar tailwincss
+[] Manejar 400 de axios
 [] Adicionar InfiniteScroll ("react-infinite-scroll-component")
 [] Reescribir la entrada inicial del componente (no me gusta como carga el listado de elementos)
