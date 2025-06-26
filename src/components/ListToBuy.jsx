@@ -4,6 +4,7 @@ import { useId, useState } from "react"
 import { useCart } from "../hooks/useCart"
 import { PayIcon } from "./Icons"
 
+// Mostrar el listado a comprar
 export function ListToBuy({ products }) {
     const payCheckboxId = useId()
     const [display, setDisplay] = useState(false)
@@ -19,23 +20,24 @@ export function ListToBuy({ products }) {
         if(cart.length === 0)
             return (<></>)
         return (<>
-            <label className='pay-button' htmlFor={payCheckboxId}>
+            
+            <label className='pay-button animate-ping' htmlFor={payCheckboxId}>
                 <PayIcon />
             </label>
             <input id={payCheckboxId} onChange={() => setDisplay(true)} type='checkbox' hidden /></>)
     }
-        
+
 
     return (
 
-        <div id="default-modal" tabIndex="-1" className="bg-gray-800 bg-opacity-80 flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="default-modal" tabIndex="-1" className=" bg-opacity-80 flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div className="relative p-4 w-full max-w-2xl max-h-full">
 
-                <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                <div className="relative bg-gray-200 rounded-lg shadow-sm dark:bg-gray-700">
 
                     <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
                         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                            Total a pagar: ${totalValue}
+                            Total a pagar: ${totalValue.toFixed(2)}
                         </h3>
                         <button onClick={() => setDisplay(false)} type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
                             <svg className="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -50,18 +52,18 @@ export function ListToBuy({ products }) {
                         <div className=" z-auto relative mx-auto flex h-72 max-w flex-col divide-y divide-gray-200 overflow-auto rounded-xl bg-white shadow-lg ring-1 ring-black/5 dark:divide-gray-200/5 dark:bg-gray-800">
 
                             {cart.map(product => (
-                                <div className="flex items-left gap-4 p-10"><img className="h-12 w-12 rounded-full" src={product.image} />
+                                <div className="flex items-left gap-4 p-10"><img className="h-12   w-12 rounded-full" src={product.image} />
                                     <div className="flex flex-col">
-                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">{product.title}</strong>
-                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{product.description}</span>
+                                        <strong className="colItemStrong">{product.title}</strong>
+                                        <span className="colItemSpand">{product.description}</span>
                                     </div>
                                     <div className="flex flex-col">
-                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Precio</strong>
-                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">${product.price}</span>
+                                        <strong className="colItemStrong">Precio</strong>
+                                        <span className="colItemSpand">${product.price}</span>
                                     </div>
                                     <div className="flex flex-col">
-                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">{product.quantity}</strong>
-                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">${product.quantity * product.price}</span>
+                                        <strong className="colItemStrong">{product.quantity}</strong>
+                                        <span className="colItemSpand">${product.quantity * product.price}</span>
                                     </div>
                                 </div>
                             ))}

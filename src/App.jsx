@@ -9,6 +9,8 @@ import { Cart } from './components/Cart.jsx'
 import { CartProvider } from './context/cart.jsx'
 import apis from "./api/urls.jsx"
 import { ListToBuy } from './components/ListToBuy.jsx'
+import { Loading } from './components/Loading.jsx'
+import { LoadingMask } from './components/LoadingMask.jsx'
 
 
 
@@ -23,6 +25,7 @@ function App() {
   const [loadedProducts, setloadedProducts] = useState([]);
   const [minMaxPrice, setminMaxPrice] = useState({ min: 0, max: 1000 });
   const [listCategories, setlistCategories] = useState([]);
+  const [firstLoad,setFirstload] = useState(true);
   useEffect(() => {
     if (loadedProducts.length === 0) {
       // Fetch
@@ -52,6 +55,7 @@ function App() {
           setloadedProducts(listProducst)
           setminMaxPrice(vminMaxPrice);
           setlistCategories( categ)
+          setFirstload(false)
         }, []);
     }
   }
@@ -62,11 +66,18 @@ function App() {
   return (
     <CartProvider  >
       <Header config={{ minMax: minMaxPrice, categories: listCategories }} />
-      {loadedProducts.length > 0 && <Cart />}
+      {loadedProducts.length > 0 && <Cart />} 
+      {firstLoad && <LoadingMask></LoadingMask>}
       {loadedProducts.length > 0 && <Products products={filteredProducts} />}
       {loadedProducts.length > 0 && <ListToBuy/>}
     </CartProvider>
   )
 }
+
+
+/*
+
+
+*/
 
 export default App

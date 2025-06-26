@@ -23,8 +23,10 @@ export function Products ({ products }) {
                 alt={product.title}
               />
               <div className='h-20'>
-                <strong>{product.title}</strong> - ${product.price}
+                <strong>{product.title}</strong> 
+                
               </div>
+              <div> ${product.price}</div>
               <div >
                 <button className='button-add'
                   style={{ backgroundColor: isProductInCart ? 'red' : '#09f' }} onClick={() => {

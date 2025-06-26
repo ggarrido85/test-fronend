@@ -2,7 +2,7 @@
 
  
 .cart {
-  @apply hidden fixed w-[200px] p-8 right-0 top-0 mt-10;
+  @apply hidden fixed w-sm p-8 right-0 top-0 mt-10;
   background: #000;
 }
 .cart img {
