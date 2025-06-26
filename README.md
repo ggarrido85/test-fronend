@@ -39,6 +39,11 @@ npm run test:unit
 npm run test:e2e:dev
 ```
 
+### Last release:
+
+```
+https://test-fronend.vercel.app/
+```
 
 
 
