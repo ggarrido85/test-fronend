@@ -2,11 +2,12 @@
 export function LoadingMask({ products }) {
 
     let N = 10
+    let i = 1
     return (
         <div className="flex flex-row content-end justify-start items-center flex-wrap ">
             {
                 Array.apply(null, {length: N}).map((i) => (
-                    <div key={i} className="mt-10  ml-5 mx-auto w-50 h-80 max-w-sm rounded-md border border-black p-8 top-10  ">
+                    <div key={(i++)+"loading"} className="mt-10  ml-5 mx-auto w-50 h-80 max-w-sm rounded-md border border-black p-8 top-10  ">
                         <div className="flex animate-pulse space-x-4">
                             <div className="size-10 rounded-full bg-gray-200"></div>
                             <div className="flex-1 space-y-6 py-1">

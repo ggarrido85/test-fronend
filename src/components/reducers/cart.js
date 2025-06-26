@@ -61,7 +61,6 @@ const UPDATE_STATE_BY_ACTION = {
   // Eliminando del carrito
   [CART_ACTION_TYPES.REST_TO_CART]: (state, action) => {
     const { id } = action.payload
-    console.log("restado")
     const newState = state.filter(item => item.id !== id)
     updateLocalStorage(newState) 
     return newState

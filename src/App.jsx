@@ -10,7 +10,7 @@ import { CartProvider } from './context/cart.jsx'
 import apis from "./api/urls.jsx"
 import { ListToBuy } from './components/ListToBuy.jsx'
 import { Loading } from './components/Loading.jsx'
-import { LoadingMask } from './components/LoadingMask.jsx'
+import { LoadingMask } from './components/LoadingMask.jsx' 
 
 
 
