@@ -67,7 +67,7 @@ body {
 .button-add button:focus,
 .button-add button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}*/
+}
 ul {
   @apply p-0;
   list-style: none;

@@ -63,11 +63,9 @@ export function ListToBuy({ products }) {
                                         <strong className="colItemStrong">Precio</strong>
                                         <span className="colItemSpand">${product.price}</span>
                                     </div>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col ">
                                         <strong className="colItemStrong">{product.quantity}</strong>
                                         <span className="colItemSpand">${product.quantity * product.price}</span>
-                                    </div>
-                                    <div className="w-50 flex items-center rounded-b dark:border-gray-600">
                                         <button className='button-add'
                                             style={{ backgroundColor: isProductInCart ? 'red' : '#09f' }} onClick={() => {
                                                 isProductInCart
@@ -81,7 +79,7 @@ export function ListToBuy({ products }) {
                                                     : <AddToCartIcon />
                                             }
                                         </button> 
-                                </div>
+                                    </div> 
                                 </div>
                             ))}
                         </div>
