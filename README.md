@@ -72,3 +72,4 @@ al carrito".
 [] Manejar 400 de axios
 [] Adicionar InfiniteScroll ("react-infinite-scroll-component")
 [] Reescribir la entrada inicial del componente (no me gusta como carga el listado de elementos)
+  
