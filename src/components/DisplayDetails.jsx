@@ -7,14 +7,14 @@ import { AddToCartIcon, PayIcon, RemoveFromCartIcon } from "./Icons"
 // Mostrar el listado a comprar
 export function DisplayDetails({ product, fClose, addToCart, removeFromCart, checkProductInCart }) {
 
-     
+    // Sobre escribir
     const isProductInCart = checkProductInCart(product)
     const rating = product!== false ? parseInt(product.rating.rate) : 0;
     const N = 5
     let i = 1
     return (
 
-        <div id="static-modal" data-modal-backdrop="static" tabindex="-1" className=" flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="static-modal" data-modal-backdrop="static" tabindex="-1" className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div className="relative p-4 w-full max-w-2xl max-h-full">
 
                 <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">

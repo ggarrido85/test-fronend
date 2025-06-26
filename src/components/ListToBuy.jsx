@@ -2,25 +2,27 @@ import './ListToBuy.css'
 
 import { useId, useState } from "react"
 import { useCart } from "../hooks/useCart"
-import { PayIcon } from "./Icons"
+import { AddToCartIcon, PayIcon, RemoveFromCartIcon } from "./Icons"
 
 // Mostrar el listado a comprar
 export function ListToBuy({ products }) {
     const payCheckboxId = useId()
     const [display, setDisplay] = useState(false)
-    const { cart } = useCart()
-
+    const { cart, removeFromCart, addToCart, restToCart } = useCart()
+    let isProductInCart = true
     let totalValue = 0;
     cart.map(product => (
         totalValue += product.price * product.quantity
     ))
+    // SI no existen productos en carro mandar a cerrar
+    if(cart.length === 0 && display === true )
+        setDisplay(false)
 
     if (display === false)
     {
         if(cart.length === 0)
             return (<></>)
         return (<>
-            
             <label className='pay-button animate-ping' htmlFor={payCheckboxId}>
                 <PayIcon />
             </label>
@@ -65,12 +67,23 @@ export function ListToBuy({ products }) {
                                         <strong className="colItemStrong">{product.quantity}</strong>
                                         <span className="colItemSpand">${product.quantity * product.price}</span>
                                     </div>
+                                    <div className="w-50 flex items-center rounded-b dark:border-gray-600">
+                                        <button className='button-add'
+                                            style={{ backgroundColor: isProductInCart ? 'red' : '#09f' }} onClick={() => {
+                                                isProductInCart
+                                                    ? removeFromCart(product)
+                                                    : addToCart(product)
+                                            }}
+                                        >
+                                            {
+                                                isProductInCart
+                                                    ? <RemoveFromCartIcon />
+                                                    : <AddToCartIcon />
+                                            }
+                                        </button> 
+                                </div>
                                 </div>
                             ))}
-
-
-
-
                         </div>
                     </div>
 
@@ -81,8 +94,6 @@ export function ListToBuy({ products }) {
                 </div>
             </div>
         </div>
-
-
     )
 
 }

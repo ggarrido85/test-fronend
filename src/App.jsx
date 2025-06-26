@@ -55,7 +55,7 @@ function App() {
           setloadedProducts(listProducst)
           setminMaxPrice(vminMaxPrice);
           setlistCategories( categ)
-          setFirstload(false)
+          setFirstload(false) 
         }, []);
     }
   }

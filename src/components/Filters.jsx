@@ -41,8 +41,9 @@ export function Filters({ config }) {
   return (
     <section className='flex justify-center items-center gap-4 '>
       <div className="gap-8">
-        <label className='' htmlFor={minPriceFilterId}>Precio a partir de:</label>
+        <label className='mr-2' htmlFor={minPriceFilterId}>Precio a partir de:</label>
         <input
+          className='cursor-pointer'
           type='range'
           id={minPriceFilterId}
           min={minMaxPrice.min}
@@ -50,11 +51,11 @@ export function Filters({ config }) {
           onChange={handleChangeMinPrice}
           value={filters.minPrice}
         />
-        <span>${filters.minPrice}</span>
+        <span className='ml-5 mr-10'>${filters.minPrice}</span>
       </div>
 
       <div>
-        <label htmlFor={categoryFilterId}>Categoría(s)</label>
+        <label className='mr-2' htmlFor={categoryFilterId}>Categoría(s):</label>
         <select className='text-black border-0 bg-blue-50' id={categoryFilterId} onChange={handleChangeCategory}>
           <option value='all'>Todas</option>
           {valuesCategories != null &&
