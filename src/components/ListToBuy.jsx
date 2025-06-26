@@ -57,7 +57,7 @@ export function ListToBuy({ products }) {
                                 <div className="flex items-left gap-4 p-10"><img className="h-12   w-12 rounded-full" src={product.image} />
                                     <div className="flex flex-col">
                                         <strong className="colItemStrong">{product.title}</strong>
-                                        <span className="colItemSpand">{product.description}</span>
+                                        <span className="colItemSpand">{product.description.slice(0,80)+ "..."}</span>
                                     </div>
                                     <div className="flex flex-col">
                                         <strong className="colItemStrong">Precio</strong>
