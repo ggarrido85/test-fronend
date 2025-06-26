@@ -68,8 +68,8 @@ al carrito".
 
 
 
-TODO: 
-[] Adicionar tailwincss
-
+Todo: 
+[X] Adicionar tailwincss
+[] Adicionar InfiniteScroll ("react-infinite-scroll-component")
 [] Reescribir la entrada inicial del componente (no me gusta como carga el listado de elementos)
 []
