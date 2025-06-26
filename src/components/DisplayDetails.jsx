@@ -32,7 +32,9 @@ export function DisplayDetails({ product, fClose, addToCart, removeFromCart, che
                     </div>
 
                     <div className="p-4 md:p-5 space-y-4">
-                        <img className="rounded w-full aspect-[16/9] block object-cover" src={product.image} />
+                        <div className='flex  items-center justify-center'>
+                        <img className="rounded w-50 aspect-[9/9] block object-cover" src={product.image} />
+                        </div>
                         <strong className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                             {product.title}
                         </strong>

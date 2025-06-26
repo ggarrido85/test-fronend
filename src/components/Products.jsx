@@ -25,13 +25,12 @@ export function Products ({ products }) {
 
           return (
             <li key={product.id+'idProducto'} className="flex items-center space-x-2 px-4 py-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 border-l-0 border-white  cursor-pointer" >
-              <img onClick={()=>setSelectProduc(product)}
+              <img className='w-3/4' onClick={()=>setSelectProduc(product)}
                 src={product.image}
                 alt={product.title}
               />
               <div className='h-20' onClick={()=>setSelectProduc(product)}>
-                <strong>{product.title}</strong> 
-                
+                <strong>{product.title}</strong>
               </div>
               <div onClick={()=>setSelectProduc(product)} > ${product.price}</div>
               <div >

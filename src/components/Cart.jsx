@@ -6,9 +6,10 @@ import { useCart } from '../hooks/useCart.js'
 
 function CartItem({ image, price, title, quantity, addToCart, restToCart }) {
   return (
-    <li className='text-white   max-h-max mt-5 bg-amber-950 rounded-2xl'>
-      <img className='flex justify-center items-center' src={image} alt={title}
-      />
+    <li className='text-white   max-h-max mt-5 bg-blue-950 rounded-2xl w-50'>
+      <div className='flex justify-center items-center'>
+      <img  src={image} alt={title} />
+      </div>
       <div >
         <strong>{title.slice(0, 30)}</strong> - ${price}
       </div>
@@ -47,7 +48,12 @@ export function Cart() {
         <label className='text-white mt-10 mb-10 ' >
           Importe: ${totalValue.toFixed(2)}
         </label>
-        <div className='overflow-visible ... '>
+        <div className='flex  items-center justify-center '>
+        {cart.length > 0 && <button className=' mt-2.5 bg-red-400' onClick={clearCart}>
+          <ClearCartIcon />
+        </button>}
+        </div>
+        <div className='overflow-y-auto  overflow-x-hidden'>
           <ul>
             {cart.map(product => (
               <CartItem
@@ -59,9 +65,7 @@ export function Cart() {
             ))}
           </ul>
         </div>
-        {cart.length > 0 && <button className=' mt-2.5 bg-red-400' onClick={clearCart}>
-          <ClearCartIcon />
-        </button>}
+        
       </aside>
     </>
   )

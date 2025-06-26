@@ -17,6 +17,6 @@
   @apply text-base opacity-90;
 }
 .products img {
-  @apply rounded w-full aspect-[16/9] block object-cover;
+  @apply rounded w-full aspect-[3/4] block object-cover;
   background: #fff;
 }
