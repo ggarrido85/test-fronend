@@ -2,11 +2,11 @@
 
  
 .cart {
-  @apply hidden fixed w-65 p-8 right-0 top-0 mt-10;
+  @apply hidden fixed w-75 p-8 right-0 top-0 mt-5;
   background: #000;
 }
 .cart img {
-  @apply rounded   aspect-[4/4] max-w-9/12 mt-5;
+  @apply rounded w-10  max-w-2/3 mt-5;
 }
 .cart li {
   @apply pb-4 border-b-[#444] border-b border-solid;
@@ -22,7 +22,7 @@
   background: #09f;
 }
 .cart-button:hover {
-  scale: 1.1;
+  scale: 2.1;
 }
 .cart-button ~ input:checked ~ .cart {
   @apply h-full block;

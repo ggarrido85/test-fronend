@@ -6,20 +6,18 @@ import { useCart } from '../hooks/useCart.js'
 
 function CartItem({ image, price, title, quantity, addToCart, restToCart }) {
   return (
-    <li className='text-white   max-h-max mt-5 bg-blue-950 rounded-2xl w-50'>
-      <div className='flex justify-center items-center'>
-      <img  src={image} alt={title} />
-      </div>
-      <div >
-        <strong>{title.slice(0, 30)}</strong> - ${price}
-      </div>
+    <li className='text-white   max-h-max mt-5 bg-blue-950 rounded-2xl w-60'>
+      <div className='w-50 flex justify-self-endft items-center'>
+          <img  src={image} alt={title} />
+          <strong>{title.slice(0, 30)}</strong> - ${price}
+      </div> 
 
       <footer>
         <small>
           Unidades: {quantity}
         </small>
-        <button className="p12 size-10 flex bg-blue-500 rounded-xl" onClick={addToCart}>+</button>
-        <button className="text-xl p12 size-10 flex bg-red-500 rounded-xl" onClick={restToCart}>-</button>
+        <button className="p12 size-8 flex bg-blue-500 rounded-xl" onClick={addToCart}>+</button>
+        <button className="text-xl p12 size-8 flex bg-red-500 rounded-xl" onClick={restToCart}>-</button>
       </footer>
     </li>
   )
