@@ -51,7 +51,7 @@ export function Filters({ config }) {
           onChange={handleChangeMinPrice}
           value={filters.minPrice}
         />
-        <span className='ml-5 mr-10'>${filters.minPrice}</span>
+        <span className='ml-2 mr-10'>${filters.minPrice}</span>
       </div>
 
       <div>
