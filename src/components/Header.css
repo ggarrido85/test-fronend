@@ -1,34 +1,12 @@
 
+@import "tailwindcss";
 .search-box {
-    /*background-color: #dddddd;
+  @apply shadow-[0_4px_8px_0_rgba(0,0,0,0.2),0_0_20px_0_rgba(0,0,0,0.19)] mb-[5px] m-auto  rounded-[10px_10px_0_0];
+  /*background-color: #dddddd;
     width: 85%;*/
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 5px;
-   /* position: absolute;*/ 
-     
-  }
+  /* position: absolute;*/
+}
 
-  .form-item-help {
-    position: absolute;
-    margin-left: -14px;
-    margin-top: 3px;
-  }
+ 
 
-  .my-input-number {
-    width: 100px;
-  }
-
-  .el-row {
-    margin-bottom: 5px;
-  }
-
-  .el-col {
-    border-radius: 4px;
-  }
-
-  hr {
-    width: 100%;
-  }
+ 

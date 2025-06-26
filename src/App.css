@@ -10,75 +10,44 @@
   }
 }
 
- *,
+*/
+*,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
+  @apply box-border font-[normal] m-0;
 }
+
 
 #root {
-  max-width: 85%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  width: 100%;
-  max-width: 1280px;
+  @apply max-w-[85%] text-center w-full max-w-screen-xl font-[normal] mx-auto my-0 p-8;
   /*margin: 0 auto;*/
-  padding: 2rem;
-  font-weight: normal;
 }
 
+
 body {
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; 
-   transition:
-    color 0.5s,
-    background-color 0.5s;
-  line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
+  @apply place-items-center min-w-[320px] min-h-screen transition-[color] duration-[0.5s,background-color] delay-[0.5s] leading-[1.6] text-[15px] m-0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  @apply border text-[1em] font-medium bg-[#353333] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  @apply border-[#646cff];
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
 ul {
+  @apply p-0;
   list-style: none;
-  padding: 0;
 }
+
 

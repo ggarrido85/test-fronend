@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// Basado en componente react
 const ButtonContainer = styled.span`
   position: fixed;
   bottom: 32px;

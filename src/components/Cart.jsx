@@ -1,7 +1,7 @@
 import './Cart.css'
 
 import { useId, useState } from 'react'
-import { CartIcon, ClearCartIcon,PayIcon } from './Icons.jsx'
+import { CartIcon, ClearCartIcon, PayIcon } from './Icons.jsx'
 import { useCart } from '../hooks/useCart.js'
 
 function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
@@ -50,6 +50,7 @@ export function Cart () {
          <label className='text-white ' >
         Importe: ${  totalValue.toFixed(2)} 
       </label>
+      <div className='overflow-visible ... '>
         <ul>
           {cart.map(product => (
             <CartItem
@@ -60,7 +61,7 @@ export function Cart () {
             />
           ))}
         </ul>
-
+      </div>
         <button className='bg-red-400' onClick={clearCart}>
           <ClearCartIcon />
         </button>

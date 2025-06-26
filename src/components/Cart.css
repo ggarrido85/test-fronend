@@ -1,61 +1,29 @@
 @import "tailwindcss";
 
  
-
-
 .cart {
+  @apply hidden fixed w-[200px] p-8 right-0 top-0;
   background: #000;
-  display: none;
-  padding: 32px;
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  width: 200px;
 }
-
 .cart img {
-  aspect-ratio: 16/9;
-  width: 80%;
+  @apply aspect-[16/9] w-4/5;
 }
-
 .cart li {
-  border-bottom: 1px solid #444;
-  padding-bottom: 16px;
+  @apply pb-4 border-b-[#444] border-b border-solid;
 }
-
 .cart footer {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  align-items: center;
+  @apply flex gap-1.5 justify-center items-center;
 }
-
 .cart footer button {
-  padding: 8px;
+  @apply p-2;
 }
-
 .cart-button {
-  align-items: center;
+  @apply items-center cursor-pointer flex h-8 justify-center absolute transition-all duration-[0.3s] ease-[ease] w-8 z-[9999] p-1 rounded-full right-2 top-2;
   background: #09f;
-  border-radius: 9999px;
-  cursor: pointer;
-  display: flex;
-  height: 32px;
-  justify-content: center;
-  padding: 4px;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  transition: all .3s ease;
-  width: 32px;
-  z-index: 9999;
 }
-
 .cart-button:hover {
   scale: 1.1;
 }
-
 .cart-button ~ input:checked ~ .cart {
-  height: 100%;
-  display: block;
+  @apply h-full block;
 }
