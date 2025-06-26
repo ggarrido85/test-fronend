@@ -61,15 +61,12 @@ al carrito".
 - [X] Mostrar el precio total de todos los productos.
 ####  4. Pantalla de confirmación de compra
 ##### Requisitos:
-- [] Mostrar un resumen del carrito con los datos de la compra.
-- [] Permitir simular la "finalización de compra".
+- [X] Mostrar un resumen del carrito con los datos de la compra.
+- [X] Permitir simular la "finalización de compra".
 
 
-
-
-
-Todo: 
+#### TODO: 
+[X] Adicionar (ir arriba)
 [X] Adicionar tailwincss
 [] Adicionar InfiniteScroll ("react-infinite-scroll-component")
 [] Reescribir la entrada inicial del componente (no me gusta como carga el listado de elementos)
-[]

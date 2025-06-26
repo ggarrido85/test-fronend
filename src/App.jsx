@@ -8,6 +8,7 @@ import { Products } from './components/Products.jsx'
 import { Cart } from './components/Cart.jsx'
 import { CartProvider } from './context/cart.jsx'
 import apis from "./api/urls.jsx"
+import { ListToBuy } from './components/ListToBuy.jsx'
 
 
 
@@ -63,6 +64,7 @@ function App() {
       <Header config={{ minMax: minMaxPrice, categories: listCategories }} />
       {loadedProducts.length > 0 && <Cart />}
       {loadedProducts.length > 0 && <Products products={filteredProducts} />}
+      {loadedProducts.length > 0 && <ListToBuy/>}
     </CartProvider>
   )
 }

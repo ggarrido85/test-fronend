@@ -1,26 +1,86 @@
+import './ListToBuy.css'
+
+import { useId, useState } from "react"
+import { useCart } from "../hooks/useCart"
+import { PayIcon } from "./Icons"
 
 export function ListToBuy({ products }) {
-    const { addToCart, removeFromCart, cart } = useCart()
+    const payCheckboxId = useId()
+    const [display, setDisplay] = useState(false)
+    const { cart } = useCart()
 
-    const checkProductInCart = product => {
-        return cart.some(item => item.id === product.id)
+    let totalValue = 0;
+    cart.map(product => (
+        totalValue += product.price * product.quantity
+    ))
+
+    if (display === false)
+    {
+        if(cart.length === 0)
+            return (<></>)
+        return (<>
+            <label className='pay-button' htmlFor={payCheckboxId}>
+                <PayIcon />
+            </label>
+            <input id={payCheckboxId} onChange={() => setDisplay(true)} type='checkbox' hidden /></>)
     }
+        
 
     return (
-        <div class="relative mx-auto flex h-72 max-w-sm flex-col divide-y divide-gray-200 overflow-auto rounded-xl bg-white shadow-lg ring-1 ring-black/5 dark:divide-gray-200/5 dark:bg-gray-800">
-            <div class="flex items-center gap-4 p-4"><img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                <div class="flex flex-col"><strong class="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong><span class="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
-                </div>
-            </div>
 
-            <div class="flex items-center gap-4 p-4"><img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                <div class="flex flex-col"><strong class="text-sm font-medium text-gray-900 dark:text-gray-200">Debra Houston</strong><span class="text-sm font-medium text-gray-500 dark:text-gray-400">Analyst</span></div></div><div class="flex items-center gap-4 p-4"><img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"><div class="flex flex-col"><strong class="text-sm font-medium text-gray-900 dark:text-gray-200">Jane White</strong><span class="text-sm font-medium text-gray-500 dark:text-gray-400">Director, Marketing</span>
+        <div id="default-modal" tabIndex="-1" className="bg-gray-800 bg-opacity-80 flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div className="relative p-4 w-full max-w-2xl max-h-full">
+
+                <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+
+                    <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            Total a pagar: ${totalValue}
+                        </h3>
+                        <button onClick={() => setDisplay(false)} type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                            <svg className="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span className="sr-only">Close modal</span>
+                        </button>
+                    </div>
+
+
+                    <div className="p-4 md:p-5 space-y-4">
+                        <div className=" z-auto relative mx-auto flex h-72 max-w flex-col divide-y divide-gray-200 overflow-auto rounded-xl bg-white shadow-lg ring-1 ring-black/5 dark:divide-gray-200/5 dark:bg-gray-800">
+
+                            {cart.map(product => (
+                                <div className="flex items-left gap-4 p-10"><img className="h-12 w-12 rounded-full" src={product.image} />
+                                    <div className="flex flex-col">
+                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">{product.title}</strong>
+                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{product.description}</span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Precio</strong>
+                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">${product.price}</span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">{product.quantity}</strong>
+                                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">${product.quantity * product.price}</span>
+                                    </div>
+                                </div>
+                            ))}
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button data-modal-hide="default-modal" type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Pagar</button>
+                        <button data-modal-hide="default-modal" type="button" onClick={() => setDisplay(false)} className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancelar</button>
+                    </div>
                 </div>
             </div>
-            <div class="flex items-center gap-4 p-4"><img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"><div class="flex flex-col"><strong class="text-sm font-medium text-gray-900 dark:text-gray-200">Ray Flint</strong>
-                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Technical Advisor</span>
-            </div>
-            </div>
-        </div>)
+        </div>
+
+
+    )
 
 }

@@ -1,4 +1,6 @@
-export const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
+// Patron de manejo local, igual a los store de vue (state, actions, getters, mutations )
+// Me gusta mas vue para esto
+
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
@@ -7,12 +9,17 @@ export const CART_ACTION_TYPES = {
   CLEAR_CART: 'CLEAR_CART'
 }
 
-// update localStorage with state for cart
+// Utilizando localStorage para almacenar el listado seleccionado
 export const updateLocalStorage = state => {
   window.localStorage.setItem('cart', JSON.stringify(state))
 }
 
+//Extraer del localStorage
+export const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
+
+// Listado de acciones
 const UPDATE_STATE_BY_ACTION = {
+  // Adicionando al carrito
   [CART_ACTION_TYPES.ADD_TO_CART]: (state, action) => {
     const { id } = action.payload
     const productInCartIndex = state.findIndex(item => item.id === id)
@@ -31,30 +38,33 @@ const UPDATE_STATE_BY_ACTION = {
     const newState = [
       ...state,
       {
-        ...action.payload, // product
+        ...action.payload,
         quantity: 1
       }
     ]
 
     updateLocalStorage(newState)
     return newState
-  }, 
+  },
+  // Limpiar
+  [CART_ACTION_TYPES.CLEAR_CART]: () => {
+    updateLocalStorage([])
+    return []
+  },
+  // Limpiando carrito
   [CART_ACTION_TYPES.REMOVE_FROM_CART]: (state, action) => {
     const { id } = action.payload
     const newState = state.filter(item => item.id !== id)
     updateLocalStorage(newState) 
     return newState
   },
+  // Eliminando del carrito
   [CART_ACTION_TYPES.REST_TO_CART]: (state, action) => {
     const { id } = action.payload
     console.log("restado")
     const newState = state.filter(item => item.id !== id)
     updateLocalStorage(newState) 
     return newState
-  },
-  [CART_ACTION_TYPES.CLEAR_CART]: () => {
-    updateLocalStorage([])
-    return []
   }
 }
 
@@ -63,3 +73,4 @@ export const cartReducer = (state, action) => {
   const updateState = UPDATE_STATE_BY_ACTION[actionType]
   return updateState ? updateState(state, action) : state
 }
+

@@ -33,18 +33,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-button {
+.button-add {
   @apply border text-[1em] font-medium bg-[#353333] cursor-pointer transition-[border-color] duration-[0.25s] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent;
   font-family: inherit;
 }
 
-button:hover {
+.button-add button:hover {
   @apply border-[#646cff];
 }
-button:focus,
-button:focus-visible {
+.button-add button:focus,
+.button-add button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+}*/
 ul {
   @apply p-0;
   list-style: none;

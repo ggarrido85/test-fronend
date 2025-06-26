@@ -6,7 +6,7 @@ import { useCart } from '../hooks/useCart.js'
 
 function CartItem ({ image, price, title, quantity, addToCart, restToCart }) {
   return (
-    <li className='text-white   max-h-max'>
+    <li className='text-white   max-h-max mt-5 bg-amber-950 rounded-2xl'>
       <img className='flex justify-center items-center' src={image} alt={title}
       />
       <div >
@@ -28,10 +28,7 @@ export function Cart () {
   const cartCheckboxId = useId()
   const { addToCart, clearCart, cart, restToCart} = useCart()
  
-  // Diplay list an descriptions
-  const makePay = ()=>{
-
-  }
+  
 
   let totalValue = 0;
   cart.map(product => (
@@ -46,8 +43,8 @@ export function Cart () {
      
       <input id={cartCheckboxId} type='checkbox' hidden />
 
-      <aside className='cart bg-blue-950'>
-         <label className='text-white ' >
+      <aside className='cart'>
+         <label className='text-white mt-10 mb-10 ' >
         Importe: ${  totalValue.toFixed(2)} 
       </label>
       <div className='overflow-visible ... '>
@@ -62,12 +59,9 @@ export function Cart () {
           ))}
         </ul>
       </div>
-        <button className='bg-red-400' onClick={clearCart}>
+        {cart.length > 0 && <button className=' mt-2.5 bg-red-400' onClick={clearCart}>
           <ClearCartIcon />
-        </button>
-        <button onClick={makePay}>
-          <PayIcon />
-        </button>
+        </button>}
       </aside>
     </>
   )

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+.pay-button {
+  @apply items-center cursor-pointer flex h-8 justify-center absolute transition-all duration-[0.3s] ease-[ease] w-8 z-[9999] p-1 rounded-b right-16 top-2;
+  background: rgb(93, 218, 21);
+}
+.pay-button:hover {
+  scale: 1.1;
+}
+.pay-button ~ input:checked ~ .cart {
+  @apply h-full block;
+}

@@ -1,6 +1,6 @@
 export function PayIcon(){
-  return <svg fill="#000000" height="24" width="24" version="1.1" id="_x31__1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 128 128" xml:space="preserve" strokeWidth='1' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
+  return <svg fill="#000000" height="24" width="24" version="1.1" id="_x31__1_"
+	 viewBox="0 0 128 128" xml:space="preserve" strokeWidth='1' stroke='currentColor'  strokeLinecap='round' strokeLinejoin='round'>
 <polygon id="_x34_" points="23.6,75.6 23.6,89.8 37.8,89.8 37.8,86.9 26.4,86.9 26.4,75.6 "/>
 <polygon id="_x34__1_" points="96.7,89.8 110.9,89.8 110.9,75.6 108,75.6 108,86.9 96.7,86.9 "/>
 <polygon id="_x33_" points="37.8,44.3 23.6,44.3 23.6,58.5 26.4,58.5 26.4,47.2 37.8,47.2 "/>
