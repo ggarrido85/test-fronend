@@ -28,5 +28,5 @@
   @apply h-full block;
 }
 .cart-left {
-  @apply  'text-white   max-h-max mt-5 bg-amber-950 rounded-2xl
+  @apply  text-white   max-h-max mt-5 bg-amber-950 rounded-2xl
 }
