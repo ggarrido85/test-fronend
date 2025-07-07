@@ -16,8 +16,8 @@ function CartItem({ image, price, title, quantity, addToCart, restToCart }) {
         <small>
           Unidades: {quantity}
         </small>
-        <button className="p12 size-8 flex bg-blue-500 rounded-xl" onClick={addToCart}>+</button>
-        <button className="text-xl p12 size-8 flex bg-red-500 rounded-xl" onClick={restToCart}>-</button>
+        <button className="p12 size-8 flex bg-blue-500 rounded-xl cursor-pointer" onClick={addToCart}>+</button>
+        <button className="text-xl p12 size-8 flex bg-red-500 rounded-xl cursor-pointer" onClick={restToCart}>-</button>
       </footer>
     </li>
   )
@@ -46,8 +46,8 @@ export function Cart() {
         <label className='text-white mt-10 mb-10 ' >
           Importe: ${totalValue.toFixed(2)}
         </label>
-        <div className='flex  items-center justify-center '>
-        {cart.length > 0 && <button className=' mt-2.5 bg-red-400' onClick={clearCart}>
+        <div className='flex  items-center justify-center cursor-pointer'>
+        {cart.length > 0 && <button className=' mt-2.5 bg-red-400 rounded-xl size-10  flex  items-center justify-center  cursor-pointer' onClick={clearCart}>
           <ClearCartIcon />
         </button>}
         </div>

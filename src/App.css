@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @layer base {
   body {
     @apply      bg-black bg-gradient-to-b from-black via-sky-100 to-gray-100  bg-no-repeat
